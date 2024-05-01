@@ -1,0 +1,20 @@
+.btn{
+    background-color: #b648ff;
+    color: white;
+
+}
+
+.btn:hover{
+    background-color: #42006d;
+}
+
+.btn-danger{
+    background-color: red;
+    color: white;
+
+}
+
+.btn-danger:hover{
+    background-color: rgb(120, 0, 0);
+}
+

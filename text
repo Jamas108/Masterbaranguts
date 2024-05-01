@@ -1,0 +1,57 @@
+        Schema::create('barang', function (Blueprint $table) {
+            $table->id();
+            $table->string('kode_barang')->unique();
+            $table->string('nama_barang');
+            $table->decimal('harga_barang', 10, 2);
+            $table->text('deskripsi_barang');
+            $table->foreignId('satuan_id')->constrained('satuan');
+            $table->timestamps();
+        });
+
+
+        Schema::create('satuan', function (Blueprint $table) {
+            $table->id();
+            $table->string('kode_satuan')->unique();
+            $table->string('nama_satuan');
+            $table->timestamps();
+        });
+
+        DB::table('barang')->insert([
+            [
+                'kode_barang' => 'KRS01',
+                'nama_barang' => 'Kursi',
+                'harga_barang'=> '12000',
+                'deskripsi_barang' => 'Kursi untuk ruang tamu',
+                'satuan_id' => 27,
+            ],
+            [
+                'kode_barang' => 'SF01',
+                'nama_barang' => 'Sofa',
+                'harga_barang'=> '100000',
+                'deskripsi_barang' => 'Sofa untuk ruang tamu',
+                'satuan_id' => 28,
+            ],
+        ]);
+
+        DB::table('satuan')->insert([
+            [
+                'kode_satuan' => 'BH',
+                'nama_satuan' => 'Buah',
+            ],
+            [
+                'kode_satuan' => 'SCH',
+                'nama_satuan' => 'Sachet',
+            ],
+            [
+                'kode_satuan' => 'PCS',
+                'nama_satuan' => 'Pieces',
+            ],
+            [
+                'kode_satuan' => 'BX',
+                'nama_satuan' => 'Box',
+            ],
+            [
+                'kode_satuan' => 'UNT',
+                'nama_satuan' => 'Unit',
+            ],
+        ]);
